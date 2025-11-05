@@ -115,13 +115,15 @@ public class StudentServiceImpl implements StudentServiceInterface {
         *   print a line to server console "Student: <STUDENT ID> deleted from course: <COURSE ID>"
         * */
 
+
         Student student = getStudentById(studentId);
         Course course = courseService.getCourseById(courseId);
+
         if(student.getStudentFirstName().equals("Student Not Found")){
             System.out.println("Student not found");
-        }else if(course.getCourseName().equals("Course Not Found")){
+        } else if(course.getCourseName().equals("Course Not Found")){
             System.out.println("Course Not Found");
-        }else{
+        } else{
             studentDao.deleteStudentFromCourse(studentId,courseId);
             System.out.println("Student: "+studentId+" deleted from course: "+courseId);
         }
@@ -132,6 +134,7 @@ public class StudentServiceImpl implements StudentServiceInterface {
     public void addStudentToCourse(int studentId, int courseId) {
         //YOUR CODE STARTS HERE
 
+        studentDao.addStudentToCourse(studentId,courseId);
 
         //YOUR CODE ENDS HERE
     }
